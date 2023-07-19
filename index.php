@@ -7,3 +7,5 @@ $smarty->assign("users", array(
 ));
 $smarty->assign("movies", array("movie 1", "movie 2", "movie 3"));
 $smarty->display('cat.tpl');
+?>
+<link href="./assets/css/style.css" rel="stylesheet" />
