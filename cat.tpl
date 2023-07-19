@@ -71,4 +71,4 @@
 
 
 
-{html_checkboxes options=$userCheckbox name="users" labels=true label_ids=true separator="<br />" attr}
+{html_checkboxes options=$userCheckbox name="users" labels=true label_ids=true separator="<br />" }

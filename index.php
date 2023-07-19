@@ -7,10 +7,16 @@ $smarty->assign("users", array(
 ));
 
 $select_users = sql("SELECT * FROM tbl_user ORDER BY id DESC");
-if (!$select_users) {
+$userOptions = array();
+if ($select_users) {
+    foreach ($select_users as $data) {
+        $userOptions[$data["id"]] = $data["username"];
+    }
+}else{
     $select_users = array();
 }
 $smarty->assign("DbUsers", $select_users);
+$smarty->assign("userCheckbox", $userOptions);
 
 $smarty->assign("movies", array("movie 1", "movie 2", "movie 3"));
 
