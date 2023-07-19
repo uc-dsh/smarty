@@ -16,6 +16,7 @@
         text-align: center;
     }
 </style>
+{*
 <table border="1">
     <thead>
         <tr>
@@ -25,23 +26,32 @@
         </tr>
     </thead>
     <tbody>
-        {strip}
+         {strip}
+
             {assign var = count value = 0}
+
             {foreach $users as $user}
+
                 {assign var = count value = $count+1}
-                <tr>
-                    <td>{$count}</td>
-                    <td>{$user["name"]}</td>
-                    <td>{$user["email"]}</td>
-                </tr>
+                        <tr>
+                            <td>{$count}</td>
+                            <td>{$user["name"]}</td>
+                            <td>{$user["email"]}</td>
+                        </tr>
+
             {/foreach}
-            {* {section name=index loop=$users}
-                <tr>
-                    <td>{"index"}</td>
-                    <td>{{$users[index]["name"]}}</td>
-                    <td>{$users[index]["email"]}</td>
-                </tr>
-            {/section} *}
+
+            {section name=index loop=$users}
+                        <tr>
+                            <td>{"index"}</td>
+                            <td>{{$users[index]["name"]}}</td>
+                            <td>{$users[index]["email"]}</td>
+                        </tr>
+
+            {/section} 
+
         {/strip}
     </tbody>
 </table>
+*}
+{html_table loop=$movies cols=2 table_attr='border="0"'}
