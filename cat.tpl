@@ -44,6 +44,27 @@
 
 
 {* custom checkbox function *}
-{strip}
+{* {strip}
     {html_checkboxes options=array(1=>"One" ,2=> "Two",3=>"Three",4=> "Four") outputs="One" labels=TRUE label_ids=TRUE separator="<br />"}
-{/strip}
+{/strip} *}
+
+
+{* Using loop over Data selected from Database *}
+<table>
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        {foreach $DbUsers as $User}
+            <tr>
+                <td>{$User["username"]}</td>
+                <td>{$User["email"]}</td>
+                <td>{$User["age"]} y.</td>
+            </tr>
+        {/foreach}
+    </tbody>
+</table>
