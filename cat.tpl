@@ -50,7 +50,7 @@
 
 
 {* Using loop over Data selected from Database *}
-<table>
+{* <table>
     <thead>
         <tr>
             <th>User Name</th>
@@ -69,6 +69,23 @@
     </tbody>
 </table>
 
+{html_checkboxes options=$userCheckbox name="users" labels=true label_ids=true separator="<br />" } *}
 
 
-{html_checkboxes options=$userCheckbox name="users" labels=true label_ids=true separator="<br />" }
+{* Smarty Image  *}
+{* {html_image file="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg" href="./"} *}
+
+
+{* Smarty Select Options *}
+{* <select class="form-control" name="users">
+    {html_options options=$userCheckbox strict=true }
+</select> *}
+
+
+{* Smarty Radio Group *}
+{* {html_radios options=$userCheckbox labels=true label_ids=true strict=true name="UserRadioButton" checked=1} *}
+
+
+{* Smarty Select Date & Time *}
+{* {html_select_date start_year=$smarty.now|date_format:"%Y"-2 end_year=$smarty.now|date_format: "%Y"+ 2 month_format="%B" all_extra='class="form-control"' field_order="DMY" field_separator=" / " month_value_format="%B" all_empty="Please select desired option"} *}
+{html_select_time use_24_hours=false minute_interval=5 second_interval=5}

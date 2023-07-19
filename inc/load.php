@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Kolkata');
 require_once("./vendor/autoload.php");
 $smarty = new Smarty();
 $smarty->caching = true;
