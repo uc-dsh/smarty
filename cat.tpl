@@ -88,4 +88,43 @@
 
 {* Smarty Select Date & Time *}
 {* {html_select_date start_year=$smarty.now|date_format:"%Y"-2 end_year=$smarty.now|date_format: "%Y"+ 2 month_format="%B" all_extra='class="form-control"' field_order="DMY" field_separator=" / " month_value_format="%B" all_empty="Please select desired option"} *}
-{html_select_time use_24_hours=false minute_interval=5 second_interval=5}
+{* {html_select_time use_24_hours=false minute_interval=5 second_interval=5} *}
+
+
+{* Mtch Equation Custom Function *}
+{* {math equation="width / height * 100" width=100 height=200 division=3} *}
+{* {'This is the Comment'} *}
+
+
+{* Text Format Custom Function *}
+{* {textformat style="email"}
+
+This is foo.
+This is foo.
+This is foo.
+This is foo.
+This is foo.
+This is foo.
+
+This is bar.
+
+bar foo bar foo     foo.
+bar foo bar foo     foo.
+bar foo bar foo     foo.
+bar foo bar foo     foo.
+bar foo bar foo     foo.
+bar foo bar foo     foo.
+bar foo bar foo     foo.
+{/textformat} *}
+
+
+{* INCLUDING CONFIG FILE *}
+{* {config_load "./config/colors.conf"}
+<div style="background-color: {#bodyBgColor#};color: {#textColor#};">
+{#pageTitle#}
+</dib> *}
+
+
+{* DEBUG CONSOLE to show all the variables and values in them snt by php file *}
+{* {debug} *}
+hi this is ome text in english
