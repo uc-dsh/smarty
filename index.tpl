@@ -34,7 +34,7 @@
 {* section function *}
 {* <table>
     {section name=user loop=$users}
-        <tr class="{cycle values="odd ,even ,negativ "}">
+        <tr class="{cycle values="odd ,even ,negative "}">
             <td>{$users[user]["name"]}</td>
             <td>{$users[user]["dob"]}</td>
             <td>{$users[user]["email"]}</td>
@@ -91,7 +91,7 @@
 {* {html_select_time use_24_hours=false minute_interval=5 second_interval=5} *}
 
 
-{* Mtch Equation Custom Function *}
+{* Match Equation Custom Function *}
 {* {math equation="width / height * 100" width=100 height=200 division=3} *}
 {* {'This is the Comment'} *}
 
@@ -127,4 +127,5 @@ bar foo bar foo     foo.
 
 {* DEBUG CONSOLE to show all the variables and values in them snt by php file *}
 {* {debug} *}
-hi this is ome text in english
+
+hi
