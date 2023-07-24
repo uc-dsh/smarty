@@ -1,15 +1,27 @@
 <?php
 date_default_timezone_set('Asia/Kolkata');
 require_once("./vendor/autoload.php");
+require_once("./extends/modifier.capital.php");
+
+function addPostHandler($tplSource, Smarty_Internal_Template $template)
+{
+    return "<?php echo '<!--This is post comment-->'; ?>" . $tplSource;
+}
+
 $smarty = new Smarty();
 $smarty->caching = true;
-$smarty->force_compile = true;
+$smarty->registerPlugin("modifier", "capitalize", 'smarty_modifier_capital' , false);
+$smarty->setTemplateDir(array("tempDir" => "./templates/"));
+$smarty->registerFilter("post", "addPostHandler");
 // $smarty->debugging = true;
 // $smarty->debugging_ctrl = "URL";
-$smarty->default_template_handler_func = "my_default_template_handler_func";
+$notFoundFile = "templates/404.tpl";
+$smarty->default_template_handler_func = "NotFound404";
 
-function my_default_template_handler_func($type, $name, &$content, &$modified, Smarty $smarty) {
-    return "./404.tpl";
+function NotFound404()
+{
+    global $notFoundFile;
+    return $notFoundFile;
 }
 
 

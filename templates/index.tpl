@@ -1,5 +1,5 @@
 {* SMARTY DATE FUNCTIONS *}
-{* {$smarty["now"]|date_format: "%a %d %b, %Y"} *}
+{$smarty["now"]|date_format: "%a %d %b, %Y %r" nocache}
 
 
 {* foreach loop with associative array *}
@@ -119,7 +119,7 @@ bar foo bar foo     foo.
 
 
 {* INCLUDING CONFIG FILE *}
-{* {config_load "./config/colors.conf"}
+{* {config_load "./configs/colors.conf"}
 <div style="background-color: {#bodyBgColor#};color: {#textColor#};">
 {#pageTitle#}
 </dib> *}
@@ -127,5 +127,47 @@ bar foo bar foo     foo.
 
 {* DEBUG CONSOLE to show all the variables and values in them snt by php file *}
 {* {debug} *}
+{include file="test.tpl" assign=name var1=value}
+{nocache}
+    {$getData|cat:"<h1>'Hi this is data</h1>"|escape:"quotes"|capitalize|nl2br}
+{/nocache}
+{mailto address="dilshad.ahmed@ucertify.com" encode='javascript_charcode' subject='Hello'}
+{assign title array("1", 2, 3)}
+The Text is {$title[0]}
+<br />
+{$menu = 
+    [
+        'item1',
+        'item2',
+        'item3' => [
+            'item3-1',
+            'item3-2',
+            'item3-3' => [
+                'item3-3-1',
+                'item3-3-2' => [
+                    "hii",
+                    "this",
+                    "is",
+                    "data"
+                ]
+            ]
+        ],
+        'item4'
+    ]
+}
+{function name="menu" level=0}
+    <ul>
+        {foreach $data as $entry}
+            {if is_array($entry)}
+                <li>{$entry@key}</li>
+                {call name=menu data=$entry level=$level+1}
+            {else}
+                <li>{$entry}</li>
+            {/if}
 
-hi
+        {/foreach}
+    </ul>
+{/function}
+
+
+{call menu data=$menu}

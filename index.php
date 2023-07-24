@@ -16,13 +16,10 @@ if ($select_users) {
 } else {
     $select_users = array();
 }
-
+$smarty->assign("getData", $_GET["data"]);
 $smarty->assign("DbUsers", $select_users);
 $smarty->assign("userCheckbox", $userOptions);
 $smarty->assign("movies", array("movie 1", "movie 2", "movie 3"));
-$text = "this is some text so that it can measure my speed ";
-
-
-$smarty->display('file:index.tpl');
+$smarty->display('extends:[tempDir]index.tpl|[tempDir]404.tpl');
 ?>
 <link href="./assets/css/style.css" rel="stylesheet" />
